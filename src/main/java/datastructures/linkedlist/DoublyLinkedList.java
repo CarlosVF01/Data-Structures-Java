@@ -1,4 +1,4 @@
-package org.example.linkedlist;
+package datastructures.linkedlist;
 
 public class DoublyLinkedList<T> {
     public int count;

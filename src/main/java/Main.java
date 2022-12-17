@@ -1,7 +1,5 @@
-package org.example;
-
-import org.example.linkedlist.DoublyLinkedList;
-import org.example.linkedlist.DoublyLinkedListNode;
+import datastructures.linkedlist.DoublyLinkedList;
+import datastructures.linkedlist.DoublyLinkedListNode;
 
 public class Main {
     public static void main(String[] args) {
