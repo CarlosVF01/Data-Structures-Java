@@ -1,5 +1,9 @@
 import datastructures.linkedlist.DoublyLinkedList;
 import datastructures.linkedlist.DoublyLinkedListNode;
+import datastructures.linkedlist.SingleLinkedList;
+import datastructures.linkedlist.SingleLinkedListNode;
+
+import java.util.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,8 +17,22 @@ public class Main {
         DoublyLinkedListNode<String> find = linkedList.find("3te");
         DoublyLinkedListNode<String> findReverse = linkedList.findReverse("3te");
 
-        System.out.println(find != null);
-        System.out.println(findReverse != null);
+        SingleLinkedList<Integer> singleLinkedList = new SingleLinkedList<>();
+        singleLinkedList.insertAt(30, 0);
+        singleLinkedList.insertAt(33, 0);
+        singleLinkedList.insertAt(37, 1);
+        singleLinkedList.insertAt(45, 2);
+        singleLinkedList.insertAt(88, 1);
+        singleLinkedList.insertAt(123, 4);
+        singleLinkedList.insertAt(1, 4);
+
+        SingleLinkedListNode<Integer> integerSingleLinkedListNode = singleLinkedList.find(37);
+
+        System.out.println("Before delete");
+        singleLinkedList.show();
+        singleLinkedList.remove(37);
+        System.out.println("After delete");
+        singleLinkedList.show();
 
     }
 }

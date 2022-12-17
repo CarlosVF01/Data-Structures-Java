@@ -1,7 +1,7 @@
 package datastructures.linkedlist;
 
 public class DoublyLinkedList<T> {
-    public int count;
+    protected int count;
     private DoublyLinkedListNode<T> head;
     private DoublyLinkedListNode<T> tail;
 
@@ -38,9 +38,7 @@ public class DoublyLinkedList<T> {
 
     public DoublyLinkedListNode<T> find(T value) {
         DoublyLinkedListNode<T> current = head;
-        int i = 0;
         while (current != null) {
-            System.out.println("iteration n: " + i++);
             if (current.value.equals(value)) {
                 return current;
             }
@@ -51,9 +49,7 @@ public class DoublyLinkedList<T> {
 
     public DoublyLinkedListNode<T> findReverse(T value) {
         DoublyLinkedListNode<T> current = tail;
-        int i = 0;
         while (current != null) {
-            System.out.println("iteration n: " + i++);
             if (current.value.equals(value)) {
                 return current;
             }

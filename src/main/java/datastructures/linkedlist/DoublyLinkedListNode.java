@@ -2,8 +2,7 @@ package datastructures.linkedlist;
 
 public class DoublyLinkedListNode<T> {
 
-    public T value;
-
+    protected T value;
     protected DoublyLinkedListNode<T> next;
     protected DoublyLinkedListNode<T> previous;
 
