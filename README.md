@@ -7,3 +7,5 @@
  DoublyLinkedList
  
  SortedDoublyLinkedList
+ 
+ Deque
