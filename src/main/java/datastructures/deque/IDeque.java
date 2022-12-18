@@ -9,9 +9,11 @@ public interface IDeque<T> {
 
     T dequeueTail();
 
-    boolean peekHead();
+    T peekHead();
 
-    boolean peekTail();
+    T peekTail();
 
     void show();
+
+    int count();
 }

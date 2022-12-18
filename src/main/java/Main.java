@@ -1,4 +1,5 @@
 import datastructures.deque.models.Deque;
+import datastructures.deque.models.Queue;
 import datastructures.linkedlist.models.doubly.DoublyLinkedList;
 import datastructures.linkedlist.models.doubly.DoublyLinkedListNode;
 import datastructures.linkedlist.models.doubly.SortedDoublyLinkedList;
@@ -7,6 +8,24 @@ import datastructures.linkedlist.models.single.SingleLinkedListNode;
 
 public class Main {
     public static void main(String[] args) {
+        Queue<Integer> queue = new Queue<>();
+
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(4);
+        queue.enqueue(3);
+        queue.enqueue(1);
+        queue.enqueue(125);
+
+        System.out.println("Peek value: " + queue.peek());
+        System.out.println("Dequeue value: " + queue.dequeue());
+
+        queue.show();
+
+        System.out.println(queue.dequeue());
+    }
+
+    private void dequeThings(){
         Deque<Integer> deque = new Deque<>();
 
         deque.enqueueHead(3);
@@ -14,7 +33,7 @@ public class Main {
         deque.enqueueHead(3);
         deque.enqueueHead(4);
         deque.enqueueHead(3);
-        
+
         deque.enqueueTail(4);
         deque.enqueueTail(23);
         deque.enqueueTail(7);

@@ -38,27 +38,33 @@ public class SortedDoublyLinkedList<T extends Comparable<T>> implements ILinkedL
 
     @Override
     public SortedDoublyLinkedListNode<T> find(T value) {
+        //TODO
         return null;
     }
 
     @Override
     public boolean remove(T value) {
+        //TODO
         return false;
     }
 
     @Override
     public boolean removeAt(int index) {
+        //TODO
         return false;
     }
 
     @Override
     public boolean contains(T value) {
+        //TODO
         return false;
     }
 
     @Override
     public void clear() {
-
+        head = null;
+        tail = null;
+        count = 0;
     }
 
     public void addAll(T[] values) {

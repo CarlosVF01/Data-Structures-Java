@@ -46,20 +46,12 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<DoublyLinkedListNo
 
     @Override
     public DoublyLinkedListNode<T> getHead() {
-        if (head != null){
-            return head;
-        }
-
-        return null;
+        return head;
     }
 
     @Override
     public DoublyLinkedListNode<T> getTail() {
-        if (tail != null){
-            return tail;
-        }
-
-        return null;
+        return tail;
     }
 
     @Override

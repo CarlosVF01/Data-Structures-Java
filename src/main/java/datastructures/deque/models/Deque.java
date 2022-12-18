@@ -5,7 +5,7 @@ import datastructures.linkedlist.models.doubly.DoublyLinkedList;
 import datastructures.linkedlist.models.doubly.DoublyLinkedListNode;
 
 public class Deque<T> implements IDeque<T> {
-    protected DoublyLinkedList<T> storage = new DoublyLinkedList<>();
+    private final DoublyLinkedList<T> storage = new DoublyLinkedList<>();
 
     @Override
     public void enqueueHead(T value) {
@@ -40,17 +40,30 @@ public class Deque<T> implements IDeque<T> {
     }
 
     @Override
-    public boolean peekHead() {
-        return storage.getHead() != null;
+    public T peekHead() {
+        DoublyLinkedListNode<T> head = storage.getHead();
+        if (head != null){
+            return head.getValue();
+        }
+        return null;
     }
 
     @Override
-    public boolean peekTail() {
-        return storage.getTail() != null;
+    public T peekTail() {
+        DoublyLinkedListNode<T> tail = storage.getTail();
+        if (tail != null){
+            return tail.getValue();
+        }
+        return null;
     }
 
     @Override
     public void show() {
         storage.show();
+    }
+
+    @Override
+    public int count() {
+        return storage.count;
     }
 }
