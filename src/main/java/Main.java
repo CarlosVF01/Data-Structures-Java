@@ -1,11 +1,28 @@
-import datastructures.linkedlist.doubly.DoublyLinkedList;
-import datastructures.linkedlist.doubly.DoublyLinkedListNode;
-import datastructures.linkedlist.doubly.SortedDoublyLinkedList;
-import datastructures.linkedlist.single.SingleLinkedList;
-import datastructures.linkedlist.single.SingleLinkedListNode;
+import datastructures.deque.models.Deque;
+import datastructures.linkedlist.models.doubly.DoublyLinkedList;
+import datastructures.linkedlist.models.doubly.DoublyLinkedListNode;
+import datastructures.linkedlist.models.doubly.SortedDoublyLinkedList;
+import datastructures.linkedlist.models.single.SingleLinkedList;
+import datastructures.linkedlist.models.single.SingleLinkedListNode;
 
 public class Main {
     public static void main(String[] args) {
+        Deque<Integer> deque = new Deque<>();
+
+        deque.enqueueHead(3);
+        deque.enqueueHead(3);
+        deque.enqueueHead(3);
+        deque.enqueueHead(4);
+        deque.enqueueHead(3);
+        
+        deque.enqueueTail(4);
+        deque.enqueueTail(23);
+        deque.enqueueTail(7);
+
+        deque.show();
+    }
+
+    private void sortedDoublyLinkedListThings(){
         SortedDoublyLinkedList<Double> sortedDoublyLinkedList = new SortedDoublyLinkedList<>();
 
         sortedDoublyLinkedList.add(3.3);
@@ -16,7 +33,6 @@ public class Main {
 
         sortedDoublyLinkedList.addAll(new Double[]{1.5, 2.3, 33.2, 43.3, 0.2, 0.3});
         sortedDoublyLinkedList.show();
-
     }
 
     private void doublyLinkedListThings() {

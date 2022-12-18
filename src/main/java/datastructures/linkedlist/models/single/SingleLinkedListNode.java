@@ -1,4 +1,4 @@
-package datastructures.linkedlist.single;
+package datastructures.linkedlist.models.single;
 
 public class SingleLinkedListNode<T> {
 

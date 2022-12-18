@@ -2,7 +2,7 @@ package datastructures.linkedlist;
 
 import java.util.Collection;
 
-public interface LinkedList<N, T> {
+public interface ILinkedList<N, T> {
     void add(T value);
 
     default void addAll(T[] values){

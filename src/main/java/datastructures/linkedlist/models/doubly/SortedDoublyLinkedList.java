@@ -1,8 +1,8 @@
-package datastructures.linkedlist.doubly;
+package datastructures.linkedlist.models.doubly;
 
-import datastructures.linkedlist.LinkedList;
+import datastructures.linkedlist.ILinkedList;
 
-public class SortedDoublyLinkedList<T extends Comparable<T>> implements LinkedList<SortedDoublyLinkedListNode<T>, T> {
+public class SortedDoublyLinkedList<T extends Comparable<T>> implements ILinkedList<SortedDoublyLinkedListNode<T>, T> {
     public int count;
     protected SortedDoublyLinkedListNode<T> head;
     protected SortedDoublyLinkedListNode<T> tail;

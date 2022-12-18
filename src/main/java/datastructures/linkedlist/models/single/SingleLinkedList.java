@@ -1,8 +1,8 @@
-package datastructures.linkedlist.single;
+package datastructures.linkedlist.models.single;
 
-import datastructures.linkedlist.LinkedList;
+import datastructures.linkedlist.ILinkedList;
 
-public class SingleLinkedList<T> implements LinkedList<SingleLinkedListNode<T>, T> {
+public class SingleLinkedList<T> implements ILinkedList<SingleLinkedListNode<T>, T> {
 
     public int count;
 

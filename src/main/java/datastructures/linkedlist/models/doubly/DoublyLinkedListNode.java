@@ -1,4 +1,4 @@
-package datastructures.linkedlist.doubly;
+package datastructures.linkedlist.models.doubly;
 
 public class DoublyLinkedListNode<T> {
 

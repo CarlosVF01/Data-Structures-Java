@@ -1,8 +1,8 @@
-package datastructures.linkedlist.doubly;
+package datastructures.linkedlist.models.doubly;
 
-import java.util.Collection;
+import datastructures.linkedlist.IDoublyLinkedList;
 
-public class DoublyLinkedList<T> implements datastructures.linkedlist.DoublyLinkedList<DoublyLinkedListNode<T>, T> {
+public class DoublyLinkedList<T> implements IDoublyLinkedList<DoublyLinkedListNode<T>, T> {
     public int count;
     private DoublyLinkedListNode<T> head;
     private DoublyLinkedListNode<T> tail;
@@ -22,9 +22,44 @@ public class DoublyLinkedList<T> implements datastructures.linkedlist.DoublyLink
         }
         count++;
     }
-    
-    public void insertAt(T value, int index) {
 
+    public void insertAt(T value, int index) {
+        if (index==0){
+            add(value);
+            return;
+        }
+
+        DoublyLinkedListNode<T> newNode = new DoublyLinkedListNode<>(value);
+        DoublyLinkedListNode<T> currentNode = head;
+
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+
+        newNode.next = currentNode;
+        newNode.previous = currentNode.previous;
+        currentNode.previous.next = newNode;
+        currentNode.previous = newNode;
+
+        count++;
+    }
+
+    @Override
+    public DoublyLinkedListNode<T> getHead() {
+        if (head != null){
+            return head;
+        }
+
+        return null;
+    }
+
+    @Override
+    public DoublyLinkedListNode<T> getTail() {
+        if (tail != null){
+            return tail;
+        }
+
+        return null;
     }
 
     @Override
@@ -104,7 +139,22 @@ public class DoublyLinkedList<T> implements datastructures.linkedlist.DoublyLink
 
     @Override
     public boolean removeAt(int index) {
-        return false;
+        if (index - 1 > count || count == 0) {
+            return false;
+        }
+        if (index == 0) {
+            remove(head.value);
+        }
+
+        DoublyLinkedListNode<T> currentNode = head;
+
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+        if (currentNode == null) {
+            throw new IllegalArgumentException("Index " + index + " is out of reach, current size is: " + count);
+        }
+        return remove(currentNode.value);
     }
 
     @Override
@@ -116,7 +166,12 @@ public class DoublyLinkedList<T> implements datastructures.linkedlist.DoublyLink
 
     @Override
     public void show() {
+        DoublyLinkedListNode<T> currentNode = head;
 
+        for (int i = 0; i < count; i++) {
+            System.out.println("Index: " + i + ", Value: " + currentNode.value);
+            currentNode = currentNode.next;
+        }
     }
 
 }
