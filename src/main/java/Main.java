@@ -33,6 +33,12 @@ public class Main {
         singleLinkedList.remove(37);
         System.out.println("After delete");
         singleLinkedList.show();
+        singleLinkedList.removeAt(5);
+        System.out.println("After deleteAt");
+        singleLinkedList.show();
+        System.out.println("After clear");
+        singleLinkedList.clear();
+        singleLinkedList.show();
 
     }
 }

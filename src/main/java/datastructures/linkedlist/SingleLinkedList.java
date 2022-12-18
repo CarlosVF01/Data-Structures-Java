@@ -51,7 +51,7 @@ public class SingleLinkedList<T> {
     }
 
     public boolean remove(T value){
-        if (find(value) == null){
+        if (count == 0 | find(value) == null){
             return false;
         }
         if (head.value.equals(value)){
@@ -75,6 +75,23 @@ public class SingleLinkedList<T> {
         count--;
 
         return true;
+    }
+
+    public boolean removeAt(int index){
+        if (index-1 > count || count == 0){
+            return false;
+        }
+        if (index == 0){
+            remove(head.value);
+        }
+        SingleLinkedListNode<T> currentNode = head;
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+        if (currentNode == null){
+            throw new IllegalArgumentException("Index " + index + " is out of reach, current size is: " + count);
+        }
+        return remove(currentNode.value);
     }
 
     public void clear(){
