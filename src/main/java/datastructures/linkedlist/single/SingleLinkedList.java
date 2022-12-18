@@ -8,18 +8,18 @@ public class SingleLinkedList<T> {
 
     protected SingleLinkedListNode<T> head;
 
-    public void insertAll(Collection<T> values){
+    public void addAll(Collection<T> values){
         for (T value: values) {
-            insertAtStart(value);
+            add(value);
         }
     }
-    public void insertAll(T[] values){
+    public void addAll(T[] values){
         for (T value: values) {
-            insertAtStart(value);
+            add(value);
         }
     }
 
-    public void insertAtStart(T value){
+    public void add(T value){
         if (count == 0){
             head = new SingleLinkedListNode<>(value);
         } else {
@@ -32,7 +32,7 @@ public class SingleLinkedList<T> {
     }
     public void insertAt(T value, int index){
         if (index == 0){
-            insertAtStart(value);
+            add(value);
             return;
         }
 

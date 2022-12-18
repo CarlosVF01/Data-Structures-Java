@@ -8,12 +8,12 @@ public class DoublyLinkedList<T> {
     private DoublyLinkedListNode<T> tail;
 
 
-    public void insertAll(Collection<T> values){
+    public void addAll(Collection<T> values){
         for (T value: values) {
             add(value);
         }
     }
-    public void insertAll(T[] values){
+    public void addAll(T[] values){
         for (T value: values) {
             add(value);
         }

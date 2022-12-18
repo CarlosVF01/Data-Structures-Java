@@ -6,15 +6,15 @@ import datastructures.linkedlist.single.SingleLinkedListNode;
 
 public class Main {
     public static void main(String[] args) {
-        SortedDoublyLinkedList<Integer> sortedDoublyLinkedList = new SortedDoublyLinkedList<>();
+        SortedDoublyLinkedList<Double> sortedDoublyLinkedList = new SortedDoublyLinkedList<>();
 
-        sortedDoublyLinkedList.add(3);
-        sortedDoublyLinkedList.add(2);
-        sortedDoublyLinkedList.add(1);
-        sortedDoublyLinkedList.add(4);
-        sortedDoublyLinkedList.add(3);
+        sortedDoublyLinkedList.add(3.3);
+        sortedDoublyLinkedList.add(2.5);
+        sortedDoublyLinkedList.add(1.4342);
+        sortedDoublyLinkedList.add(1.4343);
+        sortedDoublyLinkedList.add(1.4344);
 
-        sortedDoublyLinkedList.addAll(new Integer[]{1,2,3,4,5,6});
+        sortedDoublyLinkedList.addAll(new Double[]{1.5,2.3,33.2,43.3,0.2,0.3});
         sortedDoublyLinkedList.show();
 
     }
@@ -31,6 +31,7 @@ public class Main {
 
         System.out.println(find != null);
         System.out.println(findReverse != null);
+
     }
 
     private void singleLinkedListThings(){
