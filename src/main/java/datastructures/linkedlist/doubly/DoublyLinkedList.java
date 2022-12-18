@@ -1,10 +1,23 @@
-package datastructures.linkedlist;
+package datastructures.linkedlist.doubly;
+
+import java.util.Collection;
 
 public class DoublyLinkedList<T> {
-    protected int count;
+    public int count;
     private DoublyLinkedListNode<T> head;
     private DoublyLinkedListNode<T> tail;
 
+
+    public void insertAll(Collection<T> values){
+        for (T value: values) {
+            add(value);
+        }
+    }
+    public void insertAll(T[] values){
+        for (T value: values) {
+            add(value);
+        }
+    }
 
     public void add(T item) {
         addHead(new DoublyLinkedListNode<>(item));

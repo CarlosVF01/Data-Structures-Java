@@ -1,10 +1,23 @@
-package datastructures.linkedlist;
+package datastructures.linkedlist.single;
+
+import java.util.Collection;
 
 public class SingleLinkedList<T> {
 
     public int count;
 
     protected SingleLinkedListNode<T> head;
+
+    public void insertAll(Collection<T> values){
+        for (T value: values) {
+            insertAtStart(value);
+        }
+    }
+    public void insertAll(T[] values){
+        for (T value: values) {
+            insertAtStart(value);
+        }
+    }
 
     public void insertAtStart(T value){
         if (count == 0){

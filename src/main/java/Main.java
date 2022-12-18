@@ -1,12 +1,24 @@
-import datastructures.linkedlist.DoublyLinkedList;
-import datastructures.linkedlist.DoublyLinkedListNode;
-import datastructures.linkedlist.SingleLinkedList;
-import datastructures.linkedlist.SingleLinkedListNode;
-
-import java.util.LinkedList;
+import datastructures.linkedlist.doubly.DoublyLinkedList;
+import datastructures.linkedlist.doubly.DoublyLinkedListNode;
+import datastructures.linkedlist.doubly.SortedDoublyLinkedList;
+import datastructures.linkedlist.single.SingleLinkedList;
+import datastructures.linkedlist.single.SingleLinkedListNode;
 
 public class Main {
     public static void main(String[] args) {
+        SortedDoublyLinkedList<Integer> sortedDoublyLinkedList = new SortedDoublyLinkedList<>();
+
+        sortedDoublyLinkedList.add(3);
+        sortedDoublyLinkedList.add(2);
+        sortedDoublyLinkedList.add(1);
+        sortedDoublyLinkedList.add(4);
+        sortedDoublyLinkedList.add(3);
+
+        sortedDoublyLinkedList.addAll(new Integer[]{1,2,3,4,5,6});
+        sortedDoublyLinkedList.show();
+
+    }
+    private void doublyLinkedListThings(){
         DoublyLinkedList<String> linkedList = new DoublyLinkedList<>();
 
         for (int i = 0; i < 100; i++) {
@@ -17,6 +29,11 @@ public class Main {
         DoublyLinkedListNode<String> find = linkedList.find("3te");
         DoublyLinkedListNode<String> findReverse = linkedList.findReverse("3te");
 
+        System.out.println(find != null);
+        System.out.println(findReverse != null);
+    }
+
+    private void singleLinkedListThings(){
         SingleLinkedList<Integer> singleLinkedList = new SingleLinkedList<>();
         singleLinkedList.insertAt(30, 0);
         singleLinkedList.insertAt(33, 0);
@@ -39,6 +56,5 @@ public class Main {
         System.out.println("After clear");
         singleLinkedList.clear();
         singleLinkedList.show();
-
     }
 }

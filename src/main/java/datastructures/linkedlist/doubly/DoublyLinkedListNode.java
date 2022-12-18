@@ -1,4 +1,4 @@
-package datastructures.linkedlist;
+package datastructures.linkedlist.doubly;
 
 public class DoublyLinkedListNode<T> {
 
@@ -8,5 +8,9 @@ public class DoublyLinkedListNode<T> {
 
     public DoublyLinkedListNode(T value) {
         this.value = value;
+    }
+
+    public T getValue() {
+        return value;
     }
 }

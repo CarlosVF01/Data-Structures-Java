@@ -1,8 +1,8 @@
-package datastructures.linkedlist;
+package datastructures.linkedlist.single;
 
 public class SingleLinkedListNode<T> {
 
-    public T value;
+    protected T value;
 
     protected SingleLinkedListNode<T> next;
 
