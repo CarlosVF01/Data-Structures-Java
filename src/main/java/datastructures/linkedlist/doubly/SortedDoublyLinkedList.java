@@ -1,14 +1,15 @@
 package datastructures.linkedlist.doubly;
 
-import java.util.Collection;
+import datastructures.linkedlist.LinkedList;
 
-public class SortedDoublyLinkedList<T extends Comparable<T>> {
+public class SortedDoublyLinkedList<T extends Comparable<T>> implements LinkedList<SortedDoublyLinkedListNode<T>, T> {
     public int count;
     protected SortedDoublyLinkedListNode<T> head;
     protected SortedDoublyLinkedListNode<T> tail;
 
     public void add(T value) {
         SortedDoublyLinkedListNode<T> newNode = new SortedDoublyLinkedListNode<>(value);
+
         if (head == null) {
             head = newNode;
             tail = head;
@@ -16,18 +17,17 @@ public class SortedDoublyLinkedList<T extends Comparable<T>> {
             newNode.next = head;
             head.previous = newNode;
             head = newNode;
-
         } else if (tail.value.compareTo(newNode.value) < 0) {
             newNode.previous = tail;
             tail.next = newNode;
             tail = newNode;
         } else {
-
             SortedDoublyLinkedListNode<T> tempNode = head;
 
             while (tempNode.value.compareTo(newNode.value) < 0) {
                 tempNode = tempNode.next;
             }
+
             newNode.next = tempNode;
             newNode.previous = tempNode.previous;
             tempNode.previous.next = newNode;
@@ -36,10 +36,29 @@ public class SortedDoublyLinkedList<T extends Comparable<T>> {
         count++;
     }
 
-    public void addAll(Collection<T> values) {
-        for (T value : values) {
-            add(value);
-        }
+    @Override
+    public SortedDoublyLinkedListNode<T> find(T value) {
+        return null;
+    }
+
+    @Override
+    public boolean remove(T value) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAt(int index) {
+        return false;
+    }
+
+    @Override
+    public boolean contains(T value) {
+        return false;
+    }
+
+    @Override
+    public void clear() {
+
     }
 
     public void addAll(T[] values) {
@@ -60,14 +79,6 @@ public class SortedDoublyLinkedList<T extends Comparable<T>> {
             System.out.println("Index: " + i + ", value: " + current.value);
             current = current.next;
         }
-    }
-
-    public SortedDoublyLinkedListNode<T> getHead() {
-        return head;
-    }
-
-    public SortedDoublyLinkedListNode<T> getTail() {
-        return tail;
     }
 }
 

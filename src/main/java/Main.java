@@ -14,11 +14,12 @@ public class Main {
         sortedDoublyLinkedList.add(1.4343);
         sortedDoublyLinkedList.add(1.4344);
 
-        sortedDoublyLinkedList.addAll(new Double[]{1.5,2.3,33.2,43.3,0.2,0.3});
+        sortedDoublyLinkedList.addAll(new Double[]{1.5, 2.3, 33.2, 43.3, 0.2, 0.3});
         sortedDoublyLinkedList.show();
 
     }
-    private void doublyLinkedListThings(){
+
+    private void doublyLinkedListThings() {
         DoublyLinkedList<String> linkedList = new DoublyLinkedList<>();
 
         for (int i = 0; i < 100; i++) {
@@ -34,7 +35,7 @@ public class Main {
 
     }
 
-    private void singleLinkedListThings(){
+    private void singleLinkedListThings() {
         SingleLinkedList<Integer> singleLinkedList = new SingleLinkedList<>();
         singleLinkedList.insertAt(30, 0);
         singleLinkedList.insertAt(33, 0);

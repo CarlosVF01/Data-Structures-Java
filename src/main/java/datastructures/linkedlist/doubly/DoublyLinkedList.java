@@ -2,32 +2,17 @@ package datastructures.linkedlist.doubly;
 
 import java.util.Collection;
 
-public class DoublyLinkedList<T> {
+public class DoublyLinkedList<T> implements datastructures.linkedlist.DoublyLinkedList<DoublyLinkedListNode<T>, T> {
     public int count;
     private DoublyLinkedListNode<T> head;
     private DoublyLinkedListNode<T> tail;
 
-
-    public void addAll(Collection<T> values){
-        for (T value: values) {
-            add(value);
-        }
-    }
-    public void addAll(T[] values){
-        for (T value: values) {
-            add(value);
-        }
-    }
-
-    public void add(T item) {
-        addHead(new DoublyLinkedListNode<>(item));
-    }
-
-    public void addHead(DoublyLinkedListNode<T> node) {
+    @Override
+    public void add(T value) {
+        DoublyLinkedListNode<T> node = new DoublyLinkedListNode<>(value);
         DoublyLinkedListNode<T> oldHead = head;
 
         head = node;
-
         head.next = oldHead;
 
         if (count == 0) {
@@ -37,8 +22,14 @@ public class DoublyLinkedList<T> {
         }
         count++;
     }
+    
+    public void insertAt(T value, int index) {
 
-    public void addTail(DoublyLinkedListNode<T> node) {
+    }
+
+    @Override
+    public void addTail(T value) {
+        DoublyLinkedListNode<T> node = new DoublyLinkedListNode<>(value);
         if (count == 0) {
             head = node;
         } else {
@@ -49,6 +40,7 @@ public class DoublyLinkedList<T> {
         count++;
     }
 
+    @Override
     public DoublyLinkedListNode<T> find(T value) {
         DoublyLinkedListNode<T> current = head;
         while (current != null) {
@@ -60,6 +52,7 @@ public class DoublyLinkedList<T> {
         return null;
     }
 
+    @Override
     public DoublyLinkedListNode<T> findReverse(T value) {
         DoublyLinkedListNode<T> current = tail;
         while (current != null) {
@@ -71,10 +64,12 @@ public class DoublyLinkedList<T> {
         return null;
     }
 
+    @Override
     public boolean contains(T value) {
         return find(value) != null;
     }
 
+    @Override
     public boolean remove(T value) {
         DoublyLinkedListNode<T> found = find(value);
         if (found == null) {
@@ -107,10 +102,21 @@ public class DoublyLinkedList<T> {
         return true;
     }
 
+    @Override
+    public boolean removeAt(int index) {
+        return false;
+    }
+
+    @Override
     public void clear() {
         head = null;
         tail = null;
         count = 0;
+    }
+
+    @Override
+    public void show() {
+
     }
 
 }
