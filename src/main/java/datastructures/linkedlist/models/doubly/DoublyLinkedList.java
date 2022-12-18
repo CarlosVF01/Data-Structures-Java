@@ -2,15 +2,15 @@ package datastructures.linkedlist.models.doubly;
 
 import datastructures.linkedlist.IDoublyLinkedList;
 
-public class DoublyLinkedList<T> implements IDoublyLinkedList<DoublyLinkedListNode<T>, T> {
+public class DoublyLinkedList<T> implements IDoublyLinkedList<BaseDoublyLinkedListNode<T>, T> {
     public int count;
-    private DoublyLinkedListNode<T> head;
-    private DoublyLinkedListNode<T> tail;
+    protected BaseDoublyLinkedListNode<T> head;
+    protected BaseDoublyLinkedListNode<T> tail;
 
     @Override
     public void add(T value) {
-        DoublyLinkedListNode<T> node = new DoublyLinkedListNode<>(value);
-        DoublyLinkedListNode<T> oldHead = head;
+        BaseDoublyLinkedListNode<T> node = new DoublyLinkedListNode<>(value);
+        BaseDoublyLinkedListNode<T> oldHead = head;
 
         head = node;
         head.next = oldHead;
@@ -29,8 +29,8 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<DoublyLinkedListNo
             return;
         }
 
-        DoublyLinkedListNode<T> newNode = new DoublyLinkedListNode<>(value);
-        DoublyLinkedListNode<T> currentNode = head;
+        BaseDoublyLinkedListNode<T> newNode = new DoublyLinkedListNode<>(value);
+        BaseDoublyLinkedListNode<T> currentNode = head;
 
         for (int i = 0; i < index; i++) {
             currentNode = currentNode.next;
@@ -45,18 +45,18 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<DoublyLinkedListNo
     }
 
     @Override
-    public DoublyLinkedListNode<T> getHead() {
+    public BaseDoublyLinkedListNode<T> getHead() {
         return head;
     }
 
     @Override
-    public DoublyLinkedListNode<T> getTail() {
+    public BaseDoublyLinkedListNode<T> getTail() {
         return tail;
     }
 
     @Override
     public void addTail(T value) {
-        DoublyLinkedListNode<T> node = new DoublyLinkedListNode<>(value);
+        BaseDoublyLinkedListNode<T> node = new DoublyLinkedListNode<>(value);
         if (count == 0) {
             head = node;
         } else {
@@ -68,8 +68,8 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<DoublyLinkedListNo
     }
 
     @Override
-    public DoublyLinkedListNode<T> find(T value) {
-        DoublyLinkedListNode<T> current = head;
+    public BaseDoublyLinkedListNode<T> find(T value) {
+        BaseDoublyLinkedListNode<T> current = head;
         while (current != null) {
             if (current.value.equals(value)) {
                 return current;
@@ -80,8 +80,8 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<DoublyLinkedListNo
     }
 
     @Override
-    public DoublyLinkedListNode<T> findReverse(T value) {
-        DoublyLinkedListNode<T> current = tail;
+    public BaseDoublyLinkedListNode<T> findReverse(T value) {
+        BaseDoublyLinkedListNode<T> current = tail;
         while (current != null) {
             if (current.value.equals(value)) {
                 return current;
@@ -98,13 +98,13 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<DoublyLinkedListNo
 
     @Override
     public boolean remove(T value) {
-        DoublyLinkedListNode<T> found = find(value);
+        BaseDoublyLinkedListNode<T> found = find(value);
         if (found == null) {
             return false;
         }
 
-        DoublyLinkedListNode<T> foundPrevious = found.previous;
-        DoublyLinkedListNode<T> foundNext = found.next;
+        BaseDoublyLinkedListNode<T> foundPrevious = found.previous;
+        BaseDoublyLinkedListNode<T> foundNext = found.next;
 
         if (foundPrevious == null) {
             head = foundNext;
@@ -138,7 +138,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<DoublyLinkedListNo
             remove(head.value);
         }
 
-        DoublyLinkedListNode<T> currentNode = head;
+        BaseDoublyLinkedListNode<T> currentNode = head;
 
         for (int i = 0; i < index; i++) {
             currentNode = currentNode.next;
@@ -158,7 +158,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<DoublyLinkedListNo
 
     @Override
     public void show() {
-        DoublyLinkedListNode<T> currentNode = head;
+        BaseDoublyLinkedListNode<T> currentNode = head;
 
         for (int i = 0; i < count; i++) {
             System.out.println("Index: " + i + ", Value: " + currentNode.value);

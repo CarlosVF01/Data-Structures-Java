@@ -1,15 +1,14 @@
 package datastructures.linkedlist.models.doubly;
 
-public class SortedDoublyLinkedListNode<T extends Comparable<T>> {
-    protected T value;
-    protected SortedDoublyLinkedListNode<T> next;
-    protected SortedDoublyLinkedListNode<T> previous;
+public class SortedDoublyLinkedListNode<T extends Comparable<T>> extends BaseDoublyLinkedListNode<T> {
+        protected BaseDoublyLinkedListNode<T> next;
+        protected BaseDoublyLinkedListNode<T> previous;
 
     public SortedDoublyLinkedListNode(T value) {
-        this.value = value;
+        super.value = value;
     }
 
     public T getValue() {
-        return value;
+        return super.getValue();
     }
 }

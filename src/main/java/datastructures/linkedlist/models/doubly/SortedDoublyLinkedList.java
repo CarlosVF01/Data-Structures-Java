@@ -2,13 +2,13 @@ package datastructures.linkedlist.models.doubly;
 
 import datastructures.linkedlist.ILinkedList;
 
-public class SortedDoublyLinkedList<T extends Comparable<T>> implements ILinkedList<SortedDoublyLinkedListNode<T>, T> {
+public class SortedDoublyLinkedList<T extends Comparable<T>> implements ILinkedList<BaseDoublyLinkedListNode<T>, T> {
     public int count;
-    protected SortedDoublyLinkedListNode<T> head;
-    protected SortedDoublyLinkedListNode<T> tail;
+    protected BaseDoublyLinkedListNode<T> head;
+    protected BaseDoublyLinkedListNode<T> tail;
 
     public void add(T value) {
-        SortedDoublyLinkedListNode<T> newNode = new SortedDoublyLinkedListNode<>(value);
+        BaseDoublyLinkedListNode<T> newNode = new SortedDoublyLinkedListNode<>(value);
 
         if (head == null) {
             head = newNode;
@@ -22,7 +22,7 @@ public class SortedDoublyLinkedList<T extends Comparable<T>> implements ILinkedL
             tail.next = newNode;
             tail = newNode;
         } else {
-            SortedDoublyLinkedListNode<T> tempNode = head;
+            BaseDoublyLinkedListNode<T> tempNode = head;
 
             while (tempNode.value.compareTo(newNode.value) < 0) {
                 tempNode = tempNode.next;
@@ -37,13 +37,52 @@ public class SortedDoublyLinkedList<T extends Comparable<T>> implements ILinkedL
     }
 
     @Override
-    public SortedDoublyLinkedListNode<T> find(T value) {
-        //TODO
+    public BaseDoublyLinkedListNode<T> find(T value) {
+        if (head == null){
+            return null;
+        }
+        BaseDoublyLinkedListNode<T> currentNode = head;
+
+        while (currentNode != null){
+            if (currentNode.value.equals(value)){
+                return currentNode;
+            }
+            currentNode = currentNode.next;
+        }
+
         return null;
     }
 
     @Override
     public boolean remove(T value) {
+        BaseDoublyLinkedListNode<T> found = find(value);
+        if (found == null) {
+            return false;
+        }
+
+        BaseDoublyLinkedListNode<T> foundPrevious = found.previous;
+        BaseDoublyLinkedListNode<T> foundNext = found.next;
+
+        if (foundPrevious == null) {
+            head = foundNext;
+            if (head != null) {
+                head.previous = null;
+            }
+        } else {
+            foundPrevious.next = foundNext;
+        }
+
+        if (foundNext == null) {
+            tail = foundPrevious;
+            if (tail != null) {
+                tail.next = null;
+            }
+        } else {
+            foundNext.previous = foundPrevious;
+        }
+
+
+
         //TODO
         return false;
     }
@@ -79,7 +118,7 @@ public class SortedDoublyLinkedList<T extends Comparable<T>> implements ILinkedL
             return;
         }
 
-        SortedDoublyLinkedListNode<T> current = head;
+        BaseDoublyLinkedListNode<T> current = head;
 
         for (int i = 0; i < count; i++) {
             System.out.println("Index: " + i + ", value: " + current.value);

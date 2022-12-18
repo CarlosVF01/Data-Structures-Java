@@ -1,8 +1,8 @@
 package datastructures.deque.models;
 
 import datastructures.deque.IDeque;
+import datastructures.linkedlist.models.doubly.BaseDoublyLinkedListNode;
 import datastructures.linkedlist.models.doubly.DoublyLinkedList;
-import datastructures.linkedlist.models.doubly.DoublyLinkedListNode;
 
 public class Deque<T> implements IDeque<T> {
     private final DoublyLinkedList<T> storage = new DoublyLinkedList<>();
@@ -19,7 +19,7 @@ public class Deque<T> implements IDeque<T> {
 
     @Override
     public T dequeueHead() {
-        DoublyLinkedListNode<T> head = storage.getHead();
+        BaseDoublyLinkedListNode<T> head = storage.getHead();
         if (head != null) {
             T value = head.getValue();
             storage.remove(value);
@@ -30,7 +30,7 @@ public class Deque<T> implements IDeque<T> {
 
     @Override
     public T dequeueTail() {
-        DoublyLinkedListNode<T> tail = storage.getTail();
+        BaseDoublyLinkedListNode<T> tail = storage.getTail();
         if (tail != null) {
             T value = tail.getValue();
             storage.remove(value);
@@ -41,8 +41,8 @@ public class Deque<T> implements IDeque<T> {
 
     @Override
     public T peekHead() {
-        DoublyLinkedListNode<T> head = storage.getHead();
-        if (head != null){
+        BaseDoublyLinkedListNode<T> head = storage.getHead();
+        if (head != null) {
             return head.getValue();
         }
         return null;
@@ -50,8 +50,8 @@ public class Deque<T> implements IDeque<T> {
 
     @Override
     public T peekTail() {
-        DoublyLinkedListNode<T> tail = storage.getTail();
-        if (tail != null){
+        BaseDoublyLinkedListNode<T> tail = storage.getTail();
+        if (tail != null) {
             return tail.getValue();
         }
         return null;

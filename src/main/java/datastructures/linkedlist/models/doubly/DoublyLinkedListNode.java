@@ -1,16 +1,14 @@
 package datastructures.linkedlist.models.doubly;
 
-public class DoublyLinkedListNode<T> {
-
-    protected T value;
-    protected DoublyLinkedListNode<T> next;
-    protected DoublyLinkedListNode<T> previous;
+public class DoublyLinkedListNode<T> extends BaseDoublyLinkedListNode<T> {
+    protected BaseDoublyLinkedListNode<T> next;
+    protected BaseDoublyLinkedListNode<T> previous;
 
     public DoublyLinkedListNode(T value) {
-        this.value = value;
+        super.value = value;
     }
 
     public T getValue() {
-        return value;
+        return super.getValue();
     }
 }

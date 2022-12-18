@@ -5,14 +5,14 @@ import java.util.Collection;
 public interface ILinkedList<N, T> {
     void add(T value);
 
-    default void addAll(T[] values){
-        for (T value: values) {
+    default void addAll(T[] values) {
+        for (T value : values) {
             add(value);
         }
     }
 
-    default void addAll(Collection<T> values){
-        for (T value: values) {
+    default void addAll(Collection<T> values) {
+        for (T value : values) {
             add(value);
         }
     }
@@ -24,6 +24,7 @@ public interface ILinkedList<N, T> {
     boolean removeAt(int index);
 
     boolean contains(T value);
+
     void clear();
 
 

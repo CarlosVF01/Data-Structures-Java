@@ -1,5 +1,6 @@
 import datastructures.deque.models.Deque;
 import datastructures.deque.models.Queue;
+import datastructures.linkedlist.models.doubly.BaseDoublyLinkedListNode;
 import datastructures.linkedlist.models.doubly.DoublyLinkedList;
 import datastructures.linkedlist.models.doubly.DoublyLinkedListNode;
 import datastructures.linkedlist.models.doubly.SortedDoublyLinkedList;
@@ -8,6 +9,14 @@ import datastructures.linkedlist.models.single.SingleLinkedListNode;
 
 public class Main {
     public static void main(String[] args) {
+        queueThings();
+        dequeThings();
+        doublyLinkedListThings();
+        singleLinkedListThings();
+        sortedDoublyLinkedListThings();
+    }
+
+    private static void queueThings(){
         Queue<Integer> queue = new Queue<>();
 
         queue.enqueue(1);
@@ -25,7 +34,7 @@ public class Main {
         System.out.println(queue.dequeue());
     }
 
-    private void dequeThings(){
+    private static void dequeThings(){
         Deque<Integer> deque = new Deque<>();
 
         deque.enqueueHead(3);
@@ -41,7 +50,7 @@ public class Main {
         deque.show();
     }
 
-    private void sortedDoublyLinkedListThings(){
+    private static void sortedDoublyLinkedListThings(){
         SortedDoublyLinkedList<Double> sortedDoublyLinkedList = new SortedDoublyLinkedList<>();
 
         sortedDoublyLinkedList.add(3.3);
@@ -54,7 +63,7 @@ public class Main {
         sortedDoublyLinkedList.show();
     }
 
-    private void doublyLinkedListThings() {
+    private static void doublyLinkedListThings() {
         DoublyLinkedList<String> linkedList = new DoublyLinkedList<>();
 
         for (int i = 0; i < 100; i++) {
@@ -62,15 +71,15 @@ public class Main {
         }
         linkedList.remove("4te");
 
-        DoublyLinkedListNode<String> find = linkedList.find("3te");
-        DoublyLinkedListNode<String> findReverse = linkedList.findReverse("3te");
+        BaseDoublyLinkedListNode<String> find = linkedList.find("3te");
+        BaseDoublyLinkedListNode<String> findReverse = linkedList.findReverse("3te");
 
         System.out.println(find != null);
         System.out.println(findReverse != null);
 
     }
 
-    private void singleLinkedListThings() {
+    private static void singleLinkedListThings() {
         SingleLinkedList<Integer> singleLinkedList = new SingleLinkedList<>();
         singleLinkedList.insertAt(30, 0);
         singleLinkedList.insertAt(33, 0);
